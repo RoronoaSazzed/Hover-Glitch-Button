@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Glitch Effect</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --transition__duration: 0.15s;
+        --animation__dureation: 0.15s;
+        --fill__color: #f33f83;
+        --button__width: 300px;
+        --button__font__size: calc(var(--button__width) / 8);
+      }
+
+      .parentDiv {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .glitch-button {
+        width: var(--button__width);
+        aspect-ratio: 438 / 177;
+        transition: all var(--transition__duration);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        position: relative;
+        transform: skew(-15deg);
+      }
+
+      .glitch-button:hover {
+        cursor: pointer;
+      }
+
+      .btn__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        font-size: var(--button__font__size);
+        color: white;
+      }
+
+      .phase1,
+      .phase2,
+      .phase3,
+      .phase4,
+      .phase5 {
+        transform-origin: center;
+        transform-box: fill-box;
+        transition: all var(--transition__duration);
+      }
+
+      #glitch-svg {
+        transform-origin: center;
+        transform-box: fill-box;
+        /* transform: skew(-15deg); */
+        fill: var(--fill__color);
+        transition: all var(--transition__duration);
+      }
+
+      .glitch-button:hover .phase1 {
+        animation: phaseOne var(--animation__dureation) ease forwards;
+      }
+      .glitch-button:hover .phase2 {
+        animation: phaseTwo var(--animation__dureation) ease forwards;
+      }
+      .glitch-button:hover .phase3 {
+        animation: phaseThree var(--animation__dureation) ease forwards;
+      }
+      .glitch-button:hover .phase4 {
+        animation: phaseFour var(--animation__dureation) ease forwards;
+      }
+      .glitch-button:hover .phase5 {
+        animation: phaseFive var(--animation__dureation) ease forwards;
+      }
+
+      .glitch-button:hover #glitch-svg {
+        transform: scaleX(1.3);
+        animation: mainSVG var(--animation__dureation) ease forwards;
+      }
+
+      @keyframes phaseOne {
+        16% {
+          fill: transparent;
+        }
+
+        32% {
+          fill: var(--fill__color);
+        }
+
+        48% {
+          fill: var(--fill__color);
+        }
+
+        64% {
+          fill: var(--fill__color);
+        }
+
+        80% {
+          fill: var(--fill__color);
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+      @keyframes phaseTwo {
+        16% {
+          fill: var(--fill__color);
+        }
+
+        32% {
+          fill: transparent;
+        }
+
+        48% {
+          fill: var(--fill__color);
+        }
+
+        64% {
+          fill: var(--fill__color);
+        }
+
+        80% {
+          fill: var(--fill__color);
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+      @keyframes phaseThree {
+        16% {
+          fill: var(--fill__color);
+        }
+
+        32% {
+          fill: var(--fill__color);
+        }
+
+        48% {
+          fill: transparent;
+        }
+
+        64% {
+          fill: var(--fill__color);
+        }
+
+        80% {
+          fill: var(--fill__color);
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+      @keyframes phaseFour {
+        16% {
+          fill: var(--fill__color);
+        }
+
+        32% {
+          fill: var(--fill__color);
+        }
+
+        48% {
+          fill: var(--fill__color);
+        }
+
+        64% {
+          fill: transparent;
+        }
+
+        80% {
+          fill: var(--fill__color);
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+      @keyframes phaseFive {
+        16% {
+          fill: var(--fill__color);
+        }
+
+        32% {
+          fill: var(--fill__color);
+        }
+
+        48% {
+          fill: var(--fill__color);
+        }
+
+        64% {
+          fill: var(--fill__color);
+        }
+
+        80% {
+          fill: transparent;
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+
+      @keyframes mainSVG {
+        16% {
+          fill: transparent;
+        }
+
+        32% {
+          fill: transparent;
+        }
+
+        48% {
+          fill: transparent;
+        }
+
+        64% {
+          fill: transparent;
+        }
+
+        80% {
+          fill: transparent;
+        }
+
+        96%,
+        100% {
+          fill: var(--fill__color);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentDiv">
+      <div class="glitch-button">
+        <p class="btn__text">Tournament</p>
+
+        <!-- Glitch Button BG for the buttons of the site -->
+        <svg
+          id="glitch-svg"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 438 177"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="glitch">
+            <rect
+              id="btn-bg"
+              x="19"
+              y="26"
+              width="400"
+              height="125"
+              stroke="var(--fill__color)"
+            />
+            <g id="phase-5">
+              <rect
+                id="w8"
+                class="phase5"
+                x="80"
+                y="62"
+                width="88"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w7"
+                class="phase5"
+                x="80"
+                y="115"
+                width="39"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w6"
+                class="phase5"
+                x="168"
+                y="26"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w5"
+                class="phase5"
+                x="168"
+                y="98"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w4"
+                class="phase5"
+                x="229"
+                y="44"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w3"
+                class="phase5"
+                x="324"
+                y="62"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w2"
+                class="phase5"
+                x="229"
+                y="80"
+                width="37"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="w1"
+                class="phase5"
+                x="349"
+                y="98"
+                width="70"
+                height="18"
+                fill="var(--fill__color)"
+              />
+            </g>
+            <g id="phase-4">
+              <rect
+                id="p6"
+                class="phase4"
+                x="324"
+                y="116"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="p5"
+                class="phase4"
+                x="19"
+                y="116"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="p4"
+                class="phase4"
+                x="229"
+                y="98"
+                width="57"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="p3"
+                class="phase4"
+                x="80"
+                y="80"
+                width="88"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="p2"
+                class="phase4"
+                x="19"
+                y="62"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="p1"
+                class="phase4"
+                x="168"
+                y="44"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+            </g>
+            <g id="phase-3">
+              <rect
+                id="g7"
+                class="phase3"
+                x="324"
+                y="133"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g6"
+                class="phase3"
+                x="168"
+                y="133"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g5"
+                class="phase3"
+                x="19"
+                y="98"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g4"
+                class="phase3"
+                x="266"
+                y="80"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g3"
+                class="phase3"
+                x="229"
+                y="62"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g2"
+                class="phase3"
+                x="19"
+                y="44"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="g1"
+                class="phase3"
+                x="324"
+                y="26"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+            </g>
+            <g id="phase-2">
+              <rect
+                id="b6"
+                class="phase2"
+                x="80"
+                y="133"
+                width="88"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="b5"
+                class="phase2"
+                x="216"
+                y="116"
+                width="108"
+                height="17"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="b4"
+                class="phase2"
+                x="80"
+                y="98"
+                width="88"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="b3"
+                class="phase2"
+                x="168"
+                y="62"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="b2"
+                class="phase2"
+                x="324"
+                y="44"
+                width="71"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="b1"
+                class="phase2"
+                x="58.5"
+                y="26"
+                width="109.5"
+                height="18"
+                fill="var(--fill__color)"
+              />
+            </g>
+            <g id="phase-1">
+              <rect
+                id="r11"
+                class="phase1"
+                x="229"
+                y="133"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r10"
+                class="phase1"
+                x="19"
+                y="133"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r9"
+                class="phase1"
+                x="119"
+                y="116"
+                width="97"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r8"
+                class="phase1"
+                x="286"
+                y="98"
+                width="63"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r7"
+                class="phase1"
+                x="361"
+                y="80"
+                width="58"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r6"
+                class="phase1"
+                x="168"
+                y="80"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r5"
+                class="phase1"
+                x="19"
+                y="80"
+                width="61"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r4"
+                class="phase1"
+                x="395"
+                y="44"
+                width="24"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r3"
+                class="phase1"
+                x="80"
+                y="44"
+                width="88"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r2"
+                class="phase1"
+                x="229"
+                y="26"
+                width="95"
+                height="18"
+                fill="var(--fill__color)"
+              />
+              <rect
+                id="r1"
+                class="phase1"
+                x="19"
+                y="26"
+                width="39.5"
+                height="18"
+                fill="var(--fill__color)"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
