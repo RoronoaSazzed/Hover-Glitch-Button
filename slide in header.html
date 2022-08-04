@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Slide in Header</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .custom_navbar {
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 20px -5px rgba(0,0,0,0.11);
+      }
+
+      .header {
+        width: 50%;
+        display: none;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding: 15px 30px;
+      }
+
+      .op1 {
+        transform-origin: center;
+        transform: translateX(40vw) scale(0);
+        animation: headerSlideIn 1s ease forwards;
+      }
+
+      .op2 {
+        transform-origin: center;
+        transform: translateX(40vw) scale(0);
+        animation: headerSlideIn 1s ease .05s forwards;
+      }
+
+      .op3 {
+        transform-origin: center;
+        transform: translateX(40vw) scale(0);
+        animation: headerSlideIn 1s ease .1s forwards;
+      }
+
+      .op4 {
+        transform-origin: center;
+        transform: translateX(40vw) scale(0);
+        animation: headerSlideIn 1s ease .15s forwards;
+      }
+
+      .op5 {
+        transform-origin: center;
+        transform: translateX(40vw) scale(0);
+        animation: headerSlideIn 1s ease .2s forwards;
+      }
+
+      @keyframes headerSlideIn {
+        100%{
+          transform: translateX(0px) scale(1);
+        }
+      }
+
+      .nav_options {
+        width: 100px;
+        border-radius: 20px;
+        margin: 0 15px;
+        transform-origin: center top;
+        transition: all 0.25s;
+      }
+
+      .nav_options:hover {
+        transform: scale(1.2);
+      }
+
+      .img-responsive {
+        border-radius: 20px;
+        max-width: 100%;
+        background-color: #131313;
+      }
+
+      .sns {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        padding: 15px 30px;
+        margin-left: auto;
+      }
+
+      .social {
+        color: white;
+        font-size: 20px;
+        padding: 15px;
+        width: 100px;
+        background-color: #F33F83;
+        border-radius: 10px;
+        margin: 0 15px;
+        transition: all 0.25s;
+        width: 50px;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        opacity: 0.8;
+      }
+
+      .social:hover {
+        opacity: 1;
+      }
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  
+.custom_navbar{
+  flex-direction: column;
+}
+
+  .header,
+  .sns{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav_options{
+    width: 75px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .custom_navbar{
+  flex-direction: column;
+}
+
+.header,
+  .sns{
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+.nav_options{
+  border-radius: 5px;
+    width: 50px;
+    margin: 0px 5px;
+  }
+
+  .social{
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1 / 1;
+    font-size: 20px;
+    padding: 5px;
+  }
+  
+}
+    </style>
+  </head>
+  <body>
+    <div class="custom_navbar">
+      <div class="header" id="header">
+        <a class="nav_options" href="#"
+          ><img class="op1 img-responsive" src="1.png" alt=""
+        /></a>
+        <a class="nav_options" href="#"
+          ><img class="op2 img-responsive" src="2.png" alt=""
+        /></a>
+        <a class="nav_options" href="#"
+          ><img class="op3 img-responsive" src="3.png" alt=""
+        /></a>
+        <a class="nav_options" href="#"
+          ><img class="op4 img-responsive" src="4.png" alt=""
+        /></a>
+        <a class="nav_options" href="#"
+          ><img class="op5 img-responsive" src="5.png" alt=""
+        /></a>
+      </div>
+
+      <div class="sns">
+        <a class="social" href="#"
+          ><i class=" fa-brands fa-medium"></i></i
+        ></a>
+        <a class="social" href="#"><i class="fa-brands fa-telegram"></i></a>
+        <a class="social" href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a class="social" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social" href="#"><i class=" fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function () { 
+        setInterval(function(){
+          document.getElementById("header").style.display = "flex"
+        },3000);
+      }
+  </script>
+  </body>
+</html>
